@@ -1,24 +1,60 @@
-# README
+## usersテーブル
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false, unique: true |
+| password           | string | null: false, unique: true |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| last_name_kana     | string | null: false |
+| last_name_kana     | string | null: false |
+| birth_date         | date   | null: false |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
+has_many:products
+has_one:buyers
+has_one:ship_ad
 
-Things you may want to cover:
 
-* Ruby version
+## Productsテーブル
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| explanation　　　   | text   | null: false |
+| situation          | string | null: false, unique: true |
+| shipping_charges   | integer| null: false |
+| shipping_area      | string | null: false |
+| shipping_days      | integer| null: false |
+| price              | integer| null: false |
+| user_id            | references | null: false,foreign_key: true |
 
-* System dependencies
+### Association
+belongs_to:users
 
-* Configuration
 
-* Database creation
+## ship_addressesテーブル
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| last_name_kana     | string | null: false |
+| last_name_kana     | string | null: false |
+| post_code    　　  | text   | null: false |
+| prefectures   　   | text   | null: false |
+| city               | string | null: false |
+| address            | string | null: false |
+| building_name      | string | null: false |
+| phone number       | string | null: false |
+| user_id            | references | null: false,foreign_key: true |
 
-* Database initialization
+### Association
+belongs_to:users
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+#　buyersテーブル
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| user_id            | references | null: false,foreign_key: true |
 
-* Deployment instructions
-
-* ...
+### Association
+belongs_to:users
