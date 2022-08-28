@@ -10,8 +10,8 @@
 | birth_date         | date   | null: false |
 
 ### Association
-has_many:products
-has_many:buyer_managements
+has_many :products
+has_many :buyer_managements
 
 
 
@@ -22,14 +22,16 @@ has_many:buyer_managements
 | explanation　　　   | text   | null: false |
 | situation_id       | integer| null: false |
 | category_id        | integer| null: false |
-| shipping_charges_id| integer| null: false |
-| shipping_area_id   | integer| null: false |
-| shipping_days_id   | integer| null: false |
+| shipping_charge_id　| integer| null: false |
+| prefecture_id      | integer| null: false |
+| shipping_day_id   | integer| null: false |
 | price              | integer| null: false |
 | user　　            | references | null: false,foreign_key: true |
 
 ### Association
-belongs_to:user
+belongs_to :user
+has_one :buyer_management
+
 
 
 
@@ -40,16 +42,16 @@ belongs_to:user
 | first_name         | string | null: false |
 | last_name_kana     | string | null: false |
 | last_name_kana     | string | null: false |
-| post_code    　　  | text   | null: false |
-| prefectures_id   　| integer| null: false |
+| post_code    　　  | string  | null: false |
+| prefecture_id   　| integer| null: false |
 | city               | string | null: false |
 | address            | string | null: false |
 | building_name      | string |             |
-| phone number       | string | null: false |
+| phone_number       | string | null: false |
 | buyer_management　 | references | null: false,foreign_key: true |
 
 ### Association
-belongs_to:buyer_management
+belongs_to :buyer_management
 
 
 #　buyer_managementsテーブル
@@ -59,6 +61,6 @@ belongs_to:buyer_management
 | product   　        | references | null: false,foreign_key: true |
 
 ### Association
-belongs_to:user
-belongs_to:product
-has_one:ship_addresses
+belongs_to :user
+belongs_to :product
+has_one :ship_addresse

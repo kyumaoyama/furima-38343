@@ -17,10 +17,10 @@
                     <mxGeometry y="86" width="160" height="174" as="geometry"/>
                 </mxCell>
                 <mxCell id="56" value="商品表" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="380" y="180" width="160" height="250" as="geometry"/>
+                    <mxGeometry x="380" y="180" width="160" height="280" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="名前&#10;&#10;説明&#10;&#10;状態&#10;&#10;カテゴリー&#10;&#10;配送料&#10;&#10;配送日数&#10;&#10;配送エリア&#10;&#10;価格&#10;&#10;ユーザーID&#10;&#10;&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="56">
-                    <mxGeometry y="26" width="160" height="224" as="geometry"/>
+                <mxCell id="58" value="名前&#10;&#10;説明&#10;&#10;状態&#10;&#10;カテゴリー&#10;&#10;配送料&#10;&#10;配送日数&#10;&#10;都道府県&#10;&#10;価格&#10;&#10;ユーザーID&#10;&#10;&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="56">
+                    <mxGeometry y="26" width="160" height="254" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" value="住所" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry y="540" width="160" height="350" as="geometry"/>
