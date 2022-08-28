@@ -1,6 +1,7 @@
 ## usersテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
+| password           | string | null: false |
 | nickname           | string | null: false |
 | email              | string | null: false, unique: true |
 | last_name          | string | null: false |
@@ -38,10 +39,6 @@ has_one :buyer_management
 ## ship_addressesテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| last_name          | string | null: false |
-| first_name         | string | null: false |
-| last_name_kana     | string | null: false |
-| last_name_kana     | string | null: false |
 | post_code    　　  | string  | null: false |
 | prefecture_id   　| integer| null: false |
 | city               | string | null: false |
