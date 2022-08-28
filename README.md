@@ -3,7 +3,6 @@
 | ------------------ | ------ | ----------- |
 | nickname           | string | null: false |
 | email              | string | null: false, unique: true |
-| password           | string | null: false　|
 | last_name          | string | null: false |
 | first_name         | string | null: false |
 | last_name_kana     | string | null: false |
@@ -12,8 +11,8 @@
 
 ### Association
 has_many:products
-has_one:buyer_managements
-has_one:ship_addresses
+has_many:buyer_managements
+
 
 
 ## productsテーブル
@@ -30,12 +29,8 @@ has_one:ship_addresses
 | user　　            | references | null: false,foreign_key: true |
 
 ### Association
-belongs_to:users
-belongs_to_active_hash :situation
-belongs_to_active_hash :category
-belongs_to_active_hash :shipping_charges 
-belongs_to_active_hash :shipping_area
-belongs_to_active_hash :shipping_days
+belongs_to:user
+
 
 
 ## ship_addressesテーブル
@@ -49,20 +44,21 @@ belongs_to_active_hash :shipping_days
 | prefectures_id   　| integer| null: false |
 | city               | string | null: false |
 | address            | string | null: false |
-| building_name      | string | null: false |
+| building_name      | string |             |
 | phone number       | string | null: false |
 | buyer_management　 | references | null: false,foreign_key: true |
 
 ### Association
-belongs_to:buyer_managements
-belongs_to_active_hash :prefectures
+belongs_to:buyer_management
+
 
 #　buyer_managementsテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | user　　            | references | null: false,foreign_key: true |
+| product   　        | references | null: false,foreign_key: true |
 
 ### Association
-has_many:users
-has_many:products
-has_many:ship_addresses
+belongs_to:user
+belongs_to:product
+has_one:ship_addresses
