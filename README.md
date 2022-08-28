@@ -11,12 +11,12 @@
 | birth_date         | date   | null: false |
 
 ### Association
-has_many :products
+has_many :items
 has_many :buyer_managements
 
 
 
-## productsテーブル
+## itemsテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | name               | string | null: false |
@@ -55,9 +55,9 @@ belongs_to :buyer_management
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | user　　            | references | null: false,foreign_key: true |
-| product   　        | references | null: false,foreign_key: true |
+| item     　        | references | null: false,foreign_key: true |
 
 ### Association
 belongs_to :user
-belongs_to :product
+belongs_to :item
 has_one :ship_addresse
