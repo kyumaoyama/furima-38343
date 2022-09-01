@@ -9,13 +9,14 @@ class User < ApplicationRecord
          validates :first_name, presence: true
          validates :last_name_kana, presence: true
          validates :first_name_kana, presence: true
-         validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-         validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+         with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角文字を使用してください' } do
+          validates :first_name
+          validates :last_name
+        end
+        
          validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
           validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }  
           validates :birth_date, presence: true
-          VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
-validates :password, format: { with: VALID_PASSWORD_REGEX }
-
-         
+          VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+          validates :password, format: { with: VALID_PASSWORD_REGEX }
 end
