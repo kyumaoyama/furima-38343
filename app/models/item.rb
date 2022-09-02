@@ -3,11 +3,13 @@ class Item < ApplicationRecord
   #テーブルのアソシエーション
   belongs_to :user
    #アクティブハッシュのアソシエーション
-  belongs_to :shipping_date
+  belongs_to :shipping_day
   belongs_to :category
   belongs_to :prefecture
-  belongs_to :item_status
-  belongs_to :shipping_cost
+  belongs_to :situation
+  belongs_to :shipping_charge
+  
+  has_one_attached :image
   
   with_options presence: true do
     validates :user_id
@@ -15,10 +17,10 @@ class Item < ApplicationRecord
     validates :name
     validates :explanation
     validates :category_id
-    validates :item_status_id
-    validates :shipping_cost_id
+    validates :situation_id
+    validates :shipping_charge_id
     validates :prefecture_id
-    validates :shipping_date_id
+    validates :shipping_day_id
     
   end
 
