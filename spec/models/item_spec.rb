@@ -95,7 +95,7 @@ RSpec.describe Item, type: :model do
       it '発送元の地域の情報が空欄だと出品できない' do
         @item.prefecture_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank", 'Prefecture is not a number')
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '発送までの日数の情報が「---」だと出品できない' do
         @item.shipping_day_id = 0
@@ -125,7 +125,7 @@ RSpec.describe Item, type: :model do
       it '価格が、半角数字以外では登録できない' do
         @item.price = /\A[0-9]+\z/
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank", "Price is not a number", "Price is invalid")
+        expect(@item.errors.full_messages).to include("Price can't be blank")
       end
     end
   end
