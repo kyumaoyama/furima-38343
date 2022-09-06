@@ -17,9 +17,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
+  
   def edit
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id 
@@ -34,8 +32,12 @@ class ItemsController < ApplicationController
     if @item.valid?
       redirect_to item_path(item_params)
   else
-    render :edit
+    render 'edit'
    end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
   private
 
