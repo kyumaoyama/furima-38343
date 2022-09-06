@@ -1,24 +1,30 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,]
+  before_action :authenticate_user!, except: [:index,:show]
   def index
-    @items=Item.includes(:user).order('created_at DESC')
+    @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
-    @item=Item.new
+    @item = Item.new
   end
-  
+
   def create
-    
-    @item=Item.new(item_params)
-  if @item.save
-    redirect_to root_path
-  else
-    render :new
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
-end
-private
-def item_params
-  params.require(:item).permit(:image,:name,:explanation,:category_id,:situation_id,:shipping_charge_id,:prefecture_id,:shipping_day_id,:price).merge(user_id: current_user.id)
-end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:image, :name, :explanation, :category_id, :situation_id, :shipping_charge_id, :prefecture_id,
+                                 :shipping_day_id, :price).merge(user_id: current_user.id)
+  end
 end
