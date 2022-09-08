@@ -39,19 +39,19 @@ has_one :buyer_management
 ## ship_addressesテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| post_code    　　  | string  | null: false |
+| postcode    　　  | string  | null: false |
 | prefecture_id   　| integer| null: false |
 | city               | string | null: false |
 | address            | string | null: false |
-| building_name      | string |             |
+| building           | string |             |
 | phone_number       | string | null: false |
-| buyer_management　 | references | null: false,foreign_key: true |
+| oder            　 | references | null: false,foreign_key: true |
 
 ### Association
 belongs_to :buyer_management
 
 
-#　buyer_managementsテーブル
+#　ordersテーブル
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | user　　            | references | null: false,foreign_key: true |

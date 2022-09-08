@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   # テーブルのアソシエーション
   belongs_to :user
+  has_one    :order
   # アクティブハッシュのアソシエーション
   belongs_to :shipping_day
   belongs_to :category
