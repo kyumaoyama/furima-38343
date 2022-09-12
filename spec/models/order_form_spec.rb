@@ -39,7 +39,7 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form).to be_valid
       end
       it '電話番号が11番桁以内かつハイフンなしであれば保存できる' do
-        @order_form.phone_number = 12_345_678_910
+        @order_form.phone_number = "0901234567"
         expect(@order_form).to be_valid
       end
     end
@@ -104,6 +104,11 @@ RSpec.describe OrderForm, type: :model do
         @order_form.token = nil
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include("Token can't be blank")
+      end
+      it '電話番号が9桁以下では保存できないこと' do
+        @order_form.phone_number = 12_345_678_910_123
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
     end
   end
