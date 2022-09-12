@@ -66,3 +66,4 @@ gem 'image_processing', '~> 1.2'
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 gem 'payjp'
+gem "aws-sdk-s3", require: false
